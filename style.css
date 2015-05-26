@@ -8,7 +8,6 @@
 body {
     padding-bottom: 20px;
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-    color: #F4F2F3;
     background: #F4F2F3;	
 }
 
@@ -60,10 +59,6 @@ ul {
     position: relative;
     margin: 0 auto;
     width: 950px;
-}
-
-#page p{
-	align: center;
 }
 
 #page table{
@@ -643,9 +638,6 @@ z.sign-up-button:hover {
 }
 
 
-#modificar { 
-    margin-left: 50px;
-}
 
 
 
@@ -1449,6 +1441,11 @@ hr.raya:after { /* Not really supposed to work, but does */
 .center
 {
 	margin: 0 auto;
+}
+
+.negro
+{
+	color:#F4F2F3;
 }
 
 

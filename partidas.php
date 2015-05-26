@@ -189,7 +189,7 @@
 							$sqla = "INSERT INTO `Datos_Cotizacion` (id_cotizacion, datos_cliente, datos_contacto, datos_vendedor) values ('$id_cotizacion', '$datos_cliente', '$datos_contacto', '$datos_vendedor')";
 							$resultadoa = query($sqla, $conexion);}
                         ?>
-						<!DOCTYPE html >
+<!DOCTYPE html >
 <html>
     <head>
         <title>Consecutivo de Cotizaciones</title>
@@ -222,7 +222,6 @@
     </head>
 
     <body>
-	<!--<input type="button" id="botonprueba" value="prueba">-->
         <div id="page">
             <div id="header">
                 <h1>Artefactos Lumínicos SA de CV</h1>
@@ -230,9 +229,11 @@
 
             <div id="modificar">
 
-                <div id="titulo2">Generador de partidas para la cotización.</div>
+                <div id="titulo2">Generador de partidas para la cotización.<br><br>
                 <?php echo "Cliente actual: $empresa";echo '<br>'; echo "Cotizaci&oacute;n No: $id_cotizacion" ?>
-                <div align="center">Favor de no modificar la columna "Contador"</div><br>
+                Favor de no modificar la columna "Contador"<br>
+				
+				</div>
                 <div class="Tabla_Partidas">
                     <table  class="tablesorter" width="1000">
 
