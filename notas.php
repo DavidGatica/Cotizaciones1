@@ -72,7 +72,7 @@ $id_cotizacion = $_SESSION['cotizacion'];
                         $siguiente = 1;
 //Obtener Datos de las notas "tabla notas"
                         $sql = "SELECT * FROM `Notas` WHERE `id_cotizacion`='$id_cotizacion'";
-                        $resultado = query($sql, $con);
+                        $resultado = query($sql, $conexion);
                         while ($campo = mysql_fetch_array($resultado)) {
                             echo
                             "<tr>" .
