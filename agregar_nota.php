@@ -1,6 +1,4 @@
-
 <?php
-//Capturamos el usuario autenticado
 session_start();
 //incluimos el archivo con las funciones
 include ("funciones_mysql.php");
