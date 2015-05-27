@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_GET['sec'])) {
     $seccion = null;
 } else {
@@ -6,7 +7,7 @@ if (!isset($_GET['sec'])) {
 }
 
 //Capturamos el usuario autenticado
-session_start();
+
 
 if (!isset($_SESSION['usuario'])) {
     header('Location: log_in.php');
@@ -57,9 +58,8 @@ $nombre = $_POST['nombre'];
                 <?php
                 if ($seccion == "borrar") {
                     $nombre = $_GET['nombre'];
-
 //Cambiar el campo "desactivado" para Eliminar de la interfaz
-                    $sql = "UPDATE `Usuarios` SET `activo`='0' WHERE `nombre`='$nombre'";
+                    $sql = "UPDATE `Usuarios` SET `activo`='0' WHERE `id_usuario`='$nombre'";
                     $resultado = query($sql, $conexion);
                     ?>
                     <script type="text/javascript">

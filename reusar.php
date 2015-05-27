@@ -152,7 +152,7 @@ if ($cliente == 1) {
         $resultado1 = query($sql, $con);
     }
 
-    header("Location: editar_cotizacion.php?id_cotizacion=$id_cotizacion2");
+    echo "<div class='centrado'><a class='botoncirri' href='editar_cotizacion.php?id_cotizacion=$id_cotizacion2'>Continuar</a></div>";
 }
 
 if ($cliente == 0) {

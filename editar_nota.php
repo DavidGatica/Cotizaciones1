@@ -1,6 +1,4 @@
-
 <?php
-//Capturamos el usuario autenticado
 session_start();
 //incluimos el archivo con las funciones
 include ("funciones_mysql.php");
@@ -81,7 +79,7 @@ if (isset($_GET['nota'])) {
             ]
         });</script>
 
-    <div style="margin: 100px 0 0 700px; ">
+    <div class="centrado">
         <div id="agregarnota">Agregar notas<br><br></div>
         <select style="background-color: white" id="nota" name="no_nota" required>
             <option style="background-color: #DADADA" disabled selected>Seleccione nota predeterminada</option>

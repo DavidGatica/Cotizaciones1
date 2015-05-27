@@ -1,6 +1,5 @@
 <?php
-//Capturamos el usuario autenticado
-                        session_start();
+session_start();
 
 //incluimos el archivo con las funciones
                         include ("funciones_mysql.php");
@@ -65,7 +64,7 @@
 
 							$sql = "SELECT * FROM Direcciones WHERE id_direccion=$id_direccion";
 							$resultado = query($sql, $conexion);
-							while ($campo = mysql_fetch_array($resultado)) {
+							while ($campo = @mysql_fetch_array($resultado)) {
 								$calle = $campo['calle'];
 								$num_int = $campo['num_int'];
 								$num_ext = $campo['num_ext'];
@@ -85,7 +84,7 @@
 
 							$sql = "SELECT `nombre_c`,`departamento`,`telefono1`,`telefono2`,`e_mail_c` FROM Contacto WHERE id_contacto=$id_contacto";
 							$resultado = query($sql, $conexion);
-							while ($campo = mysql_fetch_array($resultado)) {
+							while ($campo = @mysql_fetch_array($resultado)) {
 								$nombre_c = $campo['nombre_c'];
 								$departamento = $campo['departamento'];
 								$telefono1 = $campo['telefono1'];

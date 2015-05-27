@@ -53,15 +53,7 @@ $resultado = query($sql, $conexion);
         <div id="page">
             <div id="header">
                 <h1>Artefactos Lumínicos SA de CV</h1>
-                <div id="menu">
-                    <div id="cerrar">
-                        <ul>
-                            <li><a  href="cerrar_sesion.php">Cerrar Sesion</a></li>
-
-
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
 
             <div id="main">

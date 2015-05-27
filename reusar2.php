@@ -1,6 +1,4 @@
 <?php
-
-//Capturamos el usuario autenticado
 session_start();
 
 //incluimos el archivo con las funciones
@@ -16,9 +14,6 @@ $id_cotizacion = $_GET['id_cotizacion'];
 $id_cotizacion2 = $_GET['id_cotizacion2'];
 $empresa = $_POST['empresa'];
 
-echo $id_cotizacion;
-echo $id_cotizacion2;
-echo $empresa;
 
 $sql = "SELECT * FROM Clientes WHERE empresa='$empresa'";
 $resultado = query($sql, $con);
@@ -133,5 +128,19 @@ while ($notas = mysql_fetch_array($resultado)) {
     $resultado1 = query($sql, $con);
 }
 
-header("Location: editar_cotizacion.php?id_cotizacion=$id_cotizacion2");
+
 ?>
+<html>
+	<head>
+        <title>Consecutivo de Cotizaciones</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+	</head>
+</html>
+<?php 
+echo "<div class='centrado'> <a class='botonsote' href='editar_cotizacion.php?id_cotizacion=$id_cotizacion2'>Continuar</a></div>";
+?>
+

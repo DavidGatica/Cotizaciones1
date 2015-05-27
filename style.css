@@ -499,8 +499,8 @@ z.sign-up-button:hover {
     position: relative;
     vertical-align: top;
     margin-left: 195px;
-    width: 150px;
-    height: 100%;
+    width: 5em;
+    height: 2em;
     padding: 10px;
     font-size: 22px;
     color: #F4F2F3;
@@ -1438,6 +1438,17 @@ hr.raya:after { /* Not really supposed to work, but does */
     margin: 0 auto;
 }
 
+.botonsote
+{
+	text-decoration: none;
+	padding: 1em 3em;
+	margin: 0 0 0 7em;
+	color: #FFFFFF;
+	background: #F0776C;
+	border-radius: 10px 10px 10px 10px;
+	font-weight: bold;	
+}
+
 .center
 {
 	margin: 0 auto;
@@ -1448,5 +1459,8 @@ hr.raya:after { /* Not really supposed to work, but does */
 	color:#F4F2F3;
 }
 
-
-
+.centrado
+{
+	width: auto;
+	margin: 10em 0 0 30em;
+}

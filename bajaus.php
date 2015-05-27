@@ -33,13 +33,13 @@
 
 
 //Seleccionamos Los nombres de los usuarios 
-            $sql = "SELECT nombre, apellido_p FROM `Usuarios` WHERE activo='1'";
+            $sql = "SELECT * FROM `Usuarios` WHERE activo='1'";
             $resultado = query($sql, $conexion);
 
 //Generamos el menu desplegable
             echo '<select id=bajaselect name=nombre>';
             while ($campo = mysql_fetch_array($resultado)) {
-                echo '<option>' . $campo["nombre"] . ' ' . $campo["apellido_p"];
+                echo '<option value="'.$campo["id_usuario"].'">' . $campo["nombre"] . ' ' . $campo["apellido_p"];
             }
             echo '</select>';
             ?>
