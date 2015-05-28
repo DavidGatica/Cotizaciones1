@@ -5,8 +5,7 @@ session_start();
 if (!isset($_SESSION['usuario'])) {
     header('Location: log_in.php');
 }
-$id_cotizacion = $_SESSION['cotizacion'];
-header('Content-Type: text/html; charset=UTF-8');
+$id_cotizacion = $_SESSION['id_cotizacion'];
 
 //incluimos el archivo con las funciones
 include ("funciones_mysql.php");
@@ -15,61 +14,47 @@ include ("funciones_mysql.php");
 $conexion = conectar();
 
 
+$id_orden_venta = $_GET['id_orden_venta'];
 $pedido_cliente = $_GET['pedido_cliente'];
-echo $pedido_cliente;
+$fecha_o = $_GET['fecha_o'];
+$fecha_oe = $_GET['fecha_oe'];
+$lugar_entrega = $_GET['lugar_entrega'];
+$nota_o = $_GET['nota_o'];
+$importe_letra = $_GET['importe_letra'];
+$id_gventas = $_GET['id_gventas'];
+$id_goperativa = $_GET['id_goperativa'];
+$id_aventas = $_GET['id_aventas'];
+$id_cred_y_cobr = $_GET['id_cred_y_cobr'];
 
-$no_partidas = $_SESSION['no_partidas'];
-$divisa = $_POST['divisa'];
-$subtotal = $_SESSION['subtotal'];
-$iva = $_SESSION['iva'];
-$total = $_SESSION['total'];
-$t_entrega = $_POST['t_entrega'];
-$c_pago = $_POST['c_pago'];
-$string = $_POST['datos_cliente'];
-$string2 = $_POST['datos_contacto'];
-$string3 = $_POST['datos_vendedor'];
-
-//Agregar Campos en la Tabla Cotizaciones
-$sql = "UPDATE `Cotizaciones` SET vigencia='$vigencia', no_partidas='$no_partidas', `divisa`='$divisa',`subtotal`='$subtotal',`iva`='$iva',`total`='$total',`t_entrega`='$t_entrega',`c_pago`='$c_pago' WHERE `id_cotizacion`='$id_cotizacion'";
-$resultado = query($sql, $conexion);
-
-$string = str_replace(
-        array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $string
+$pedido_cliente = str_replace(
+        array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $pedido_cliente
 );
 
-$string2 = str_replace(
-        array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $string2
+$lugar_entrega = str_replace(
+        array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $lugar_entrega
 );
 
-$string3 = str_replace(
-        array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $string3
+$nota_o = str_replace(
+        array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $nota_o
 );
 
 //Agregar Campos en la Tabla Cotizaciones
-$sqla = "INSERT INTO `Datos_Cotizacion` (id_cotizacion, datos_cliente, datos_contacto, datos_vendedor) values ('$id_cotizacion', '$string', '$string2', '$string3')";
+$sqla = "INSERT INTO Orden_Venta (id_orden_venta, fecha_o, fecha_eo, pedido_cliente, lugar_entrega, importe_letra, id_gventas, id_goperativa, id_aventas, id_cred_y_cobr, id_cotizcacion, nota_o) values ('$id_orden_venta', '$fecha_o', '$fecha_eo', '$pedido_cliente', '$lugar_entrega', '$importe_letra', '$id_gventas', '$id_goperativa', '$id_aventas', '$id_cred_y_cobr', '$id_cotizcacion', '$nota_o')";
 $resultadoa = query($sqla, $conexion);
 
 
-unset($_SESSION['cotizacion']);
-unset($_SESSION['empresa']);
-unset($_SESSION['subtotal']);
-unset($_SESSION['total']);
-unset($_SESSION['iva']);
-unset($_SESSION['no_partidas']);
-if (isset($_SESSION['cancelar'])) {
-    unset($_SESSION['cancelar']);
-}
+unset($_SESSION['id_cotizacion']);
 ?>
 
 <html>
-<!--
+
     <script type="text/javascript">
         function regresar() {
-            alert("La cotizacion ha finalizado con exito");
+            alert("La orden de venta ha sido creada");
             document.location.href = 'log_in.php';
         }
         regresar()
 
     </script>
--->
+
 </html>

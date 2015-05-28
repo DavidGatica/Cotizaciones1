@@ -62,12 +62,24 @@
 		#datos_clientei
 		{
 			float: left;
+			width: 30em;
+		}
+		
+		#datos_clientei h6
+		{
+			font-size: 0.8em;
 		}
 			
 		.datos_clienteii
 		{
 			float: left;
-			padding-right: 1em;
+			font-size: 1.1em;
+		}
+			
+		.datos_clienteid
+		{
+			width: 22em;
+			float: right;
 			font-size: 1.1em;
 		}
 		
