@@ -14,11 +14,18 @@
 #tablilla
 {
 	width: 55em;
+	border-radius:10px;
+	
+}
+
+.tablota{
+border-radius:10px;
 }
 
 .thead
 {
 	font-size: 0.7em;
+	background: #A2CCD7;
 }
 
 .botmargin

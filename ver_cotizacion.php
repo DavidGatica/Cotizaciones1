@@ -209,7 +209,7 @@ $cp = $campo['cp'];
                     <div class="h7" style="font-size: 15px" align="center">PONEMOS A SU AMABLE CONSIDERACIÓN EL SIGUIENTE PRESUPUESTO</div> <br>
 
                     <div align="center">
-                        <table  id="tablilla" border="4px" cellspacing="0" class="h7">
+                        <table  id="tablilla" border="4px" bgcolor="#A8D9FF" "cellspacing="0" class="h7">
 
                             <thead class="thead">
                                 <tr>
@@ -267,7 +267,7 @@ $cp = $campo['cp'];
 
                                 <tr>
                                     <td style="border: hidden" colspan="5" ><br><b5>
-                                    <table border="3px" width="500px" id="margen" class="h7">
+                                    <table border="3px" width="500px" bgcolor="#A2CCD7" id="margen" class="h7 tablota">
                                         <thead>
                                             <tr>
                                                 <th width="20%" align="center" colspan="2" id="sin_borde"  >Notas<br></th>		

@@ -1,4 +1,9 @@
+.tablon{
+border:4px; 
+bgcolor:#007BF7;
+cellspacing:0; 
 
+}
 
 * {
     margin: 0;
