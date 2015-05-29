@@ -17,7 +17,7 @@ $conexion = conectar();
 $id_orden_venta = $_GET['id_orden_venta'];
 $pedido_cliente = $_GET['pedido_cliente'];
 $fecha_o = $_GET['fecha_o'];
-$fecha_oe = $_GET['fecha_oe'];
+$fecha_eo = $_GET['fecha_oe'];
 $lugar_entrega = $_GET['lugar_entrega'];
 $nota_o = $_GET['nota_o'];
 $importe_letra = $_GET['importe_letra'];
@@ -39,7 +39,7 @@ $nota_o = str_replace(
 );
 
 //Agregar Campos en la Tabla Cotizaciones
-$sqla = "INSERT INTO Orden_Venta (id_orden_venta, fecha_o, fecha_eo, pedido_cliente, lugar_entrega, importe_letra, id_gventas, id_goperativa, id_aventas, id_cred_y_cobr, id_cotizcacion, nota_o) values ('$id_orden_venta', '$fecha_o', '$fecha_eo', '$pedido_cliente', '$lugar_entrega', '$importe_letra', '$id_gventas', '$id_goperativa', '$id_aventas', '$id_cred_y_cobr', '$id_cotizcacion', '$nota_o')";
+$sqla = "INSERT INTO Orden_Venta (id_orden_venta, fecha_o, fecha_eo, pedido_cliente, lugar_entrega, importe_letra, id_gventas, id_goperativa, id_aventas, id_cred_y_cobr, id_cotizacion, nota_o) values ('$id_orden_venta', '$fecha_o', '$fecha_eo', '$pedido_cliente', '$lugar_entrega', '$importe_letra', '$id_gventas', '$id_goperativa', '$id_aventas', '$id_cred_y_cobr', '$id_cotizacion', '$nota_o')";
 $resultadoa = query($sqla, $conexion);
 
 

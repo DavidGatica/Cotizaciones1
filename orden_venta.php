@@ -416,8 +416,8 @@
 				<div id="fechad" class="datos">
 				
 					
-					<input class="textinput4" id="caja" type="text" name="fecha_o"  name="fecha_o" form="form"><br />
-					<input class="textinput4" id="caja1" type="text" name="fecha_oe" name="fecha_eo" form="form">
+					<input class="textinput4" id="caja" type="text" name="fecha_o" form="form"><br />
+					<input class="textinput4" id="caja1" type="text" name="fecha_oe" form="form">
 				
 				</div>
 			
