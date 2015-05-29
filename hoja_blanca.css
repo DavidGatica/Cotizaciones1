@@ -18,6 +18,14 @@
 	
 }
 
+	
+
+.taabla table th {background-color: #106E72; color:white; }
+.taabla table tr:nth-child(odd) {background-color: #ADFFE5;}
+.taabla table tr:nth-child(even) {background-color: #54B9BE;}
+
+
+
 .tablota{
 border-radius:10px;
 }

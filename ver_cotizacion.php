@@ -209,6 +209,7 @@ $cp = $campo['cp'];
                     <div class="h7" style="font-size: 15px" align="center">PONEMOS A SU AMABLE CONSIDERACIÓN EL SIGUIENTE PRESUPUESTO</div> <br>
 
                     <div align="center">
+					<div class="taabla">
                         <table  id="tablilla" border="4px" bgcolor="#A8D9FF" "cellspacing="0" class="h7">
 
                             <thead class="thead">
@@ -334,7 +335,7 @@ while ($campo = mysql_fetch_array($resultado)) {
 
                                     </tr>
                                     </table></div>
-
+</div>
 
 
                                     <br><br><br>
