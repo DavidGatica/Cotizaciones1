@@ -70,6 +70,7 @@ if ($cont == 1) {
                 $resultado = query($sql, $conexion);
                 while ($campo = mysql_fetch_array($resultado)) {
                     $id_cotizacion = $campo['id_cotizacion'];
+					$id_orden_venta=$campo['id_orden_venta'];
                     
 					$fecha_o = $campo['fecha_o'];
 					$fecha_eo = $campo['fecha_eo'];
@@ -77,7 +78,7 @@ if ($cont == 1) {
                     echo "<tr>";
 
 
-                    echo "<td align='center'>" . $campo['id_orden_venta'] . "</td>";
+                    echo "<td align='center'>" . $id_orden_venta . "</td>";
 
                     $sql3 = "SELECT id_usuario FROM `Cotizaciones` WHERE id_cotizacion = '$id_cotizacion'";
                     $resultado3 = query($sql3, $conexion);
@@ -115,8 +116,8 @@ if ($cont == 1) {
                     echo "<td>" . $vendedor . "</td>";
 
                     echo "<td height='35px'> "
-                    . "<a href='ver_cotizacion.php?id_cotizacion=" . $id_cotizacion . "' ><div class='ver' align='center'>Ver</div></a></td><td height='35px'>"
-                    . "<a href='editar_cotizacion.php?id_cotizacion=" . $id_cotizacion . "&empresa=". $empresa . "&cotiz_usuario=". $id_usuario ."' ><div class='editar' align='center'> Editar</div></a></td>";
+                    . "<a href='ver_orden.php?id_orden_venta=" . $id_orden_venta."' ><div class='ver' align='center'>Ver</div></a></td><td height='35px'>"
+                    . "<a href='editar_orden.php?id_orden_venta=" . $id_orden_venta."' ><div class='editar' align='center'> Editar</div></a></td>";
 
                     echo "</tr>";
                 }

@@ -630,7 +630,24 @@
 			border: none;
 			margin: 0;
 			
+		}			
+		
+		.resultado
+		{
+			font-size: 1em;
+			margin-left: 0.4em;
+			
+		}	
+		
+		.espacio
+		{
+			height: 1.4em;
 		}		
+		
+		.espacio2
+		{
+			height: 1.5em;
+		}
 		
 		.textinput3
 		{
@@ -641,6 +658,15 @@
 			color: red;
 			border: none;
 			margin: 0;
+			text-align: center;
+			
+		}			
+		
+		.resultado2
+		{
+			font-size: 1em;
+			font-weight: bold;
+			color: red;
 			text-align: center;
 			
 		}		
