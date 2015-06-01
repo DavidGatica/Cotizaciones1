@@ -19,10 +19,15 @@
 		{		
 			padding: 20px 50px 40px 50px;
 			margin: 0 auto;
-			margin-top: 50px;
 			width: 950px;
 			height: 100%;
 			background: #FFFFF7;
+		}		
+		
+		#contenido2
+		{		
+			margin: 0 auto;
+			height: 100%;
 		}
 		
 		#logo
@@ -668,6 +673,18 @@
 			font-weight: bold;
 			color: red;
 			text-align: center;
+			
+		}				
+		
+		.resultado3
+		{
+			font-size: 0.7em;
+			
+		}		
+		
+		.resultado4
+		{
+			font-size: 0.5em;
 			
 		}		
 		
