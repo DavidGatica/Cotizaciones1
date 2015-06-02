@@ -183,19 +183,33 @@
 //Funcion que conecta la base de datos
         $conexion = conectar();
 		
-		$sql = "SELECT id_orden_venta FROM Orden_Venta ORDER BY id_orden_venta DESC LIMIT 1";
-		$resultado = query($sql, $conexion);
-		$campo = mysql_fetch_row($resultado);
+		$id_orden_venta = $_GET['id_orden_venta'];
 		
-		$id_orden_venta = $campo[0] + 1;
-
-		if ($id_orden_venta == "") 
+		
+		$sql = "SELECT * FROM Orden_Venta WHERE id_orden_venta='$id_orden_venta'";
+		$resultado = query($sql, $conexion);
+		$campo = mysql_fetch_array($resultado);
+		$fecha_o=$campo['fecha_o'];
+		$fecha_eo=$campo['fecha_eo'];
+		$pedido_cliente=$campo['pedido_cliente'];
+		$lugar_entrega=$campo['lugar_entrega'];
+		$importe_letra=$campo['importe_letra'];
+		$id_gventas=$campo['id_gventas'];
+		$id_goperativa=$campo['id_goperativa'];
+		$id_aventas=$campo['id_aventas'];
+		$id_cred_y_cobr=$campo['id_cred_y_cobr'];
+		$id_cotizacion=$campo['id_cotizacion'];
+		$nota_o=$campo['nota_o'];
+		if($importe_letra=="")
 		{
-			$id_orden_venta = 1;
+			$contiene=0;
 		}
-
-        $id_cotizacion = $_GET['id_cotizacion'];
-        $_SESSION['id_cotizacion'] = $id_cotizacion;
+		else
+		{
+			$contiene=1;
+		}
+		
+		
 
         $sql = "SELECT* FROM Cotizaciones WHERE id_cotizacion = '$id_cotizacion'";
         $resultado = query($sql, $conexion);
@@ -357,16 +371,16 @@
 
 				
 					</div>
-					<?php echo "<form method='GET' action='orden_base_datos.php?id_cotizacion='".$id_cotizacion." id='form'></form>";?>
+					<?php echo "<form method='POST' action='orden_base_datos.php?id_orden_venta=".$id_orden_venta."&editar=si' id='form'></form>";?>
 					<div class="datos_clienteid">
 					
 						<div class="datos">
-							<input class="textinput1" type="text" value="<?php echo $empresa; ?>"><br />
-							<input class="textinput1" type="text" value="<?php echo $direccion; ?>"><br />
-							<input class="textinput1" type="text" value="<?php echo $colonia; ?>"><br />
-							<input class="textinput1" type="text" value="<?php echo $municipio; ?>"><br />
-							<input class="textinput1" type="text" value="<?php echo $telefono1." ".$telefono2; ?>"><br />
-							<input class="textinput1" type="text" value="<?php echo $nombre_c; ?>"><br />
+							<div class="espacio"><?php echo "<div class='resultado'>".$empresa."</div>";?></div>
+							<div class="espacio"><?php echo "<div class='resultado'>".$direccion."</div>";?></div>
+							<div class="espacio"><?php echo "<div class='resultado'>".$colonia."</div>";?></div>
+							<div class="espacio"><?php echo "<div class='resultado'>".$municipio."</div>";?></div>
+							<div class="espacio"><?php echo "<div class='resultado'>".$telefono1 ." ". $telefono2."</div>";?></div>
+							<?php echo "<div class='resultado'>".$nombre_c."</div>";?>
 						</div>
 					
 					</div>
@@ -386,9 +400,9 @@
 					<div class="datos_clientedd">
 					
 						<div class="datos">
-							<input class="textinput2" type="text" value="<?php echo $cp; ?>"><br />
-							<input class="textinput2" type="text" name="pedido_cliente" required form="form"><br />							
-							<input class="textinput2" type="text" value="<?php echo $rfc; ?>">
+							<div class="espacio2"><?php echo "<div class='resultado'>".$cp."</div>";?></div>
+							<input class="textinput2" type="text" name="pedido_cliente" required form="form" value="<?php echo $pedido_cliente;?>"><br />							
+							<?php echo "<div class='resultado'>".$rfc."</div>";?>
 						</div>
 					
 					</div>
@@ -400,7 +414,7 @@
 			<div id="orden_venta">
 					
 					<h6>Orden de venta No.</h6>
-					<input class="textinput3" type="text" value="<?php echo $id_orden_venta;?>" name="id_orden_venta" form="form">
+					<div class="resultado2"><?php echo $id_orden_venta;?></div>
 					
 			</div>
 			
@@ -416,8 +430,8 @@
 				<div id="fechad" class="datos">
 				
 					
-					<input class="textinput4" id="caja" type="text" name="fecha_o" form="form"><br />
-					<input class="textinput4" id="caja1" type="text" name="fecha_oe" form="form">
+					<input class="textinput4" id="caja" type="text" name="fecha_o" form="form" value="<?php echo $fecha_o;?>"><br />
+					<input class="textinput4" id="caja1" type="text" name="fecha_eo" form="form" value="<?php echo $fecha_eo;?>">
 				
 				</div>
 			
@@ -426,7 +440,7 @@
 			<div id="c_pago">
 			
 				<h6>Condiciones de pago</h6>
-				<textarea class="areatext"><?php echo $c_pago; ?></textarea>
+				<div class="resultado4"><?php echo $c_pago; ?></div>
 				
 			</div>
 			
@@ -437,14 +451,14 @@
 			<div id="lugar_entrega">
 			
 				<h6>Lugar de entrega:</h6>
-				<textarea class="bigareatext" name="lugar_entrega" form="form"></textarea>
+				<textarea class="bigareatext" name="lugar_entrega" form="form"><?php echo $lugar_entrega;?></textarea>
 			
 			</div>
 			
 			<div id="rep_ventas" class="center">
 			
 				<h6>Representante de ventas:</h6>
-					<input type="text" class="textinput center" value="<?php echo $vendedor; ?>">
+					<div class="espacio"><?php echo "<div class='resultado3'>".$nombre."</div>";?></div>
 			</div>
 		
 		</div>
@@ -534,7 +548,7 @@
 		
 			<div id="notas">
 				<h6>Notas:</h6> 
-				<textarea class="bigareatext3" name="nota_o" form="form"></textarea>
+				<textarea class="bigareatext3" name="nota_o" form="form"><?php echo $nota_o;?></textarea>
 			</div>
 			
 			<div id="totales">
@@ -569,8 +583,8 @@
 					
 					
 					<form name="forma1" action="<?php   $pedido_cliente=$_GET['pedido_cliente'];
-														echo $_SERVER['PHP_SELF']."?id_cotizacion=".$id_cotizacion."&pedido_cliente=".$pedido_cliente; ?>" method="post">
-				<input  type="text" name="cantidad" value="<?php echo isset($_POST['cantidad']) ? $_POST['cantidad'] : $total; ?>" maxlength="21" class="caja_total" />  
+														echo $_SERVER['PHP_SELF']."?id_orden_venta=".$id_orden_venta; ?>" method="post">
+				<input  type="text" name="cantidad" value="<?php echo isset($_POST['cantidad']) ? $_POST['cantidad'] : $total; ?>" maxlength="21" class="caja_total" autofocus/>  
 				
 				<br /><input id="flechita" type="submit" name="boton1" value="">
 					
@@ -581,7 +595,7 @@
 					<div id="imp_letra">
 		
 			<div id="importe"><h6>Importe con letra:</h6></div>
-			<textarea class="bigareatext2" name="importe_letra" form="form"><?php echo isset($_POST['cantidad']) ? numtoletras($_POST['cantidad']) : ''; ?></textarea>
+			<textarea class="bigareatext2" name="importe_letra" form="form"><?php echo isset($_POST['cantidad']) ? numtoletras($_POST['cantidad']) : $importe_letra; ?></textarea>
 			</form>
 			
 			
@@ -603,7 +617,7 @@
 			<br />
 				<select name="id_gventas" form="form">
 					<option value=""></option>
-					<option value="Marco Villar">Marco Villar</option>
+					<option value="Marco Villar" <?php if($id_gventas=='Marco Villar'){ echo 'selected';}?>>Marco Villar</option>
 				</select>
 		</div>						
 
@@ -613,7 +627,7 @@
 			<br />
 				<select name="id_goperativa" form="form">
 					<option value=""></option>
-					<option value="Adriana Villar">Adriana Villar</option>
+					<option value="Adriana Villar" <?php if($id_goperativa=='Adriana Villar'){ echo 'selected';}?>>Adriana Villar</option>
 				</select>
 		</div>
 		
@@ -623,7 +637,7 @@
 			<br />
 				<select name="id_aventas" form="form">
 					<option value=""></option>
-					<option value="Mariela Aguilar">Mariela Aguilar</option>
+					<option value="Mariela Aguilar" <?php if($id_aventas=='Mariela Aguilar'){ echo 'selected';}?>>Mariela Aguilar</option>
 				</select>
 		</div>
 		
@@ -633,7 +647,7 @@
 			<br />
 				<select name="id_cred_y_cobr" form="form">
 					<option value=""></option>
-					<option value="Ana María Villar">Ana María Villar</option>
+					<option value="Ana María Villar" <?php if($id_cred_y_cobr=='Ana María Villar'){ echo 'selected';}?>>Ana María Villar</option>
 				</select>
 		</div>
 		
@@ -645,7 +659,7 @@
 </div>
 	<div class="centrar">
 	<a href="administracion.php?sec=cotizaciones" id="regresar">Regresar</a>
-	<input type="submit" value="Crear" id="crear" form="form">
+	<input type="submit" value="Guardar" id="crear" form="form">
 	</div>
 	
 

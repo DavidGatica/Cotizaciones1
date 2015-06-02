@@ -15,6 +15,65 @@
 			background: #F4F2F3;
 		}
 		
+		input:focus
+		{
+			border-color: #106E72;
+			box-shadow: 0 0 9px #5cd053;
+			padding: 0.2em 0.5em 0.2em 2em;
+			transition: padding .25s;			
+		}						
+		
+		input:not(focus)
+		{
+			transition: padding .25s;			
+		}				
+		
+		input:hover
+		{
+			border-color: #106E72;
+			box-shadow: 0 0 9px #5cd053;
+			
+		}		
+		
+		textarea:focus
+		{
+			border-color: #106E72;
+			box-shadow: 0 0 9px #5cd053;
+			padding: 0.2em 0.5em 0.2em 0.7em;
+			transition: padding .25s;			
+		}			
+		
+		textarea:not(focus)
+		{
+			transition: padding .25s;			
+		}		
+		
+		textarea:hover
+		{
+			border-color: #106E72;
+			box-shadow: 0 0 9px #5cd053;
+			
+		}
+		
+		select:focus
+		{
+			background: #FFFFF7;
+			box-shadow: 0 0 9px #5cd053;
+			padding: 0.2em 0.5em 0.2em 0.7em;
+			transition: padding .25s;	
+		}			
+		
+		select:not(focus)
+		{
+			transition: padding .25s;	
+		}		
+		
+		option:hover
+		{
+			background-color: #54B9BE;
+			box-shadow: 10px 0 9px red;
+		}
+		
 		#contenido
 		{		
 			padding: 20px 50px 40px 50px;
@@ -752,8 +811,6 @@ label:before {
 
 #crear
 {	
-	
-	width: 4em;
 	padding: 0.4em 1em;
 	border: none;
 	background: #106E72;
@@ -777,8 +834,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ebf93', end
 
 #regresar
 {	
-	
-	width: 4em;
+	font-size: 0.8em;	
 	padding: 0.4em 1em;
 	border: none;
 	background: #106E72;
