@@ -135,22 +135,32 @@ session_start();
 			   $("#caja1").datepicker({ dateFormat: "yy-mm-dd" }).val()
        });
 	   
+
+
+function imprimir()
+{
+  var Obj = document.getElementById("desaparece");
+  Obj.style.visibility = 'hidden';
+  window.print();
+}
+
+	   
    </script>
 	
 <head>
     <title>Orden de venta</title>
-
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+	
 	<link href="st_orden.css" rel="stylesheet" type="text/css" />
-	<link href="jqueryCalendar.css" rel="stylesheet" type="text/css" />
     
-<div id="imprimeme">
+
 	
 </head>
 
 <body onLoad="document.forma1.cantidad.focus();">
+
 
 	<div id="contenido">
 
@@ -257,7 +267,7 @@ session_start();
 			<div id="c_pago">
 			
 				<h6>Condiciones de pago</h6>
-				<textarea class="areatext"><?php echo $c_pago; ?></textarea>
+				<div class="resultado4"><?php echo $c_pago; ?></div>
 				
 			</div>
 			
@@ -268,14 +278,14 @@ session_start();
 			<div id="lugar_entrega">
 			
 				<h6>Lugar de entrega:</h6>
-				<textarea class="bigareatext" name="lugar_entrega" form="form"></textarea>
+				<div class="espacio"><?php echo "<div class='resultado3'>".$lugar_entrega."</div>";?></div>
 			
 			</div>
 			
 			<div id="rep_ventas" class="center">
 			
 				<h6>Representante de ventas:</h6>
-					<input type="text" class="textinput center" value="<?php echo $vendedor; ?>">
+					<div class="espacio"><?php echo "<div class='resultado3'>".$nombre."</div>";?></div>
 			</div>
 		
 		</div>
@@ -365,7 +375,7 @@ session_start();
 		
 			<div id="notas">
 				<h6>Notas:</h6> 
-				<textarea class="bigareatext3" name="nota_o" form="form"></textarea>
+				<div class="espacio"><?php echo "<div class='resultado3'>".$nota_o."</div>";?></div>
 			</div>
 			
 			<div id="totales">
@@ -399,11 +409,9 @@ session_start();
 					<br />					
 					
 					
-					<form name="forma1" action="<?php   $pedido_cliente=$_GET['pedido_cliente'];
-														echo $_SERVER['PHP_SELF']."?id_cotizacion=".$id_cotizacion."&pedido_cliente=".$pedido_cliente; ?>" method="post">
-				<input  type="text" name="cantidad" value="<?php echo isset($_POST['cantidad']) ? $_POST['cantidad'] : $total; ?>" maxlength="21" class="caja_total" />  
+
+				<div class="espacio"><?php echo "<div class='resultado2'>".$total."</div>";?></div>
 				
-				<br /><input id="flechita" type="submit" name="boton1" value="">
 					
 				</div>
 		
@@ -412,8 +420,7 @@ session_start();
 					<div id="imp_letra">
 		
 			<div id="importe"><h6>Importe con letra:</h6></div>
-			<textarea class="bigareatext2" name="importe_letra" form="form"><?php echo isset($_POST['cantidad']) ? numtoletras($_POST['cantidad']) : ''; ?></textarea>
-			</form>
+			<div class="espacio"><?php echo "<div class='resultado'>".$importe_letra."</div>";?></div>
 			
 			
 			
@@ -432,54 +439,43 @@ session_start();
 			<h5>Gerencia de ventas</h5>
 			<hr/>
 			<br />
-				<select name="id_gventas" form="form">
-					<option value=""></option>
-					<option value="Marco Villar">Marco Villar</option>
-				</select>
+				<div class="espacio"><?php echo "<div class='resultado'>".$id_gventas."</div>";?></div>
 		</div>						
 
 		<div id="ger_op">
 			<h5>Gerencia Operativa</h5>
 			<hr/>
 			<br />
-				<select name="id_goperativa" form="form">
-					<option value=""></option>
-					<option value="Adriana Villar">Adriana Villar</option>
-				</select>
+				<div class="espacio"><?php echo "<div class='resultado'>".$id_goperativa."</div>";?></div>
 		</div>
 		
 		<div id="asis_ven">
 			<h5>Asistente de ventas</h5>
 			<hr/>
 			<br />
-				<select name="id_aventas" form="form">
-					<option value=""></option>
-					<option value="Mariela Aguilar">Mariela Aguilar</option>
-				</select>
+				<div class="espacio"><?php echo "<div class='resultado'>".$id_aventas."</div>";?></div>
 		</div>
 		
 		<div id="cre_cob">
 			<h5>Crédito y Cobranza</h5>
 			<hr/>
 			<br />
-				<select name="id_cred_y_cobr" form="form">
-					<option value=""></option>
-					<option value="Ana María Villar">Ana María Villar</option>
-				</select>
+				<div class="espacio"><?php echo "<div class='resultado'>".$id_cred_y_cobr."</div>";?></div>
 		</div>
 		
 						<div class="break"></div>
 		
-
 	</div>
 	
 </div>
-	<div class="centrar">
-	<a href="administracion.php?sec=cotizaciones" id="regresar">Regresar</a>
-	<input type="submit" value="Crear" id="crear" form="form">
-	</div>
+<div class="centrar">
+<br />
+<input accesskey="i" type="button" id="desaparece" onClick="imprimir()" value="Imprimir" action="administracion.php?sec=orden"> <br /><br />
 	
-
+	
+	<a accesskey="a" href="administracion.php?sec=orden"><img src="images/arrow2.png" ></a>
+	</div>
+</div>
 </body>
 
 
