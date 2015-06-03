@@ -17,7 +17,7 @@ $editar=$_GET['editar'];
 
 if($editar=="si"){
 
-$id_orden_venta = $_POST['id_orden_venta'];
+$id_orden_venta = $_GET['id_orden_venta'];
 $pedido_cliente = $_POST['pedido_cliente'];
 $fecha_o = $_POST['fecha_o'];
 $fecha_eo = $_POST['fecha_eo'];
@@ -28,6 +28,8 @@ $id_gventas = $_POST['id_gventas'];
 $id_goperativa = $_POST['id_goperativa'];
 $id_aventas = $_POST['id_aventas'];
 $id_cred_y_cobr = $_POST['id_cred_y_cobr'];
+
+
 
 $pedido_cliente = str_replace(
         array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $pedido_cliente
@@ -41,8 +43,9 @@ $nota_o = str_replace(
         array('à', 'ä', 'â', 'ª', 'À', 'Â', 'Ä', 'è', 'ë', 'ê', 'È', 'Ê', 'Ë', 'ì', 'ï', 'î', 'Ì', 'Ï', 'Î', 'ò', 'ö', 'ô', 'Ò', 'Ö', 'Ô', 'ù', 'ü', 'û', 'Ù', 'Û', 'Ü', "'"), array('á', 'a', 'a', 'a', 'Á', 'A', 'A', 'é', 'e', 'e', 'É', 'E', 'E', 'í', 'i', 'i', 'Í', 'I', 'I', 'ó', 'o', 'o', 'Ó', 'O', 'O', 'ú', 'u', 'u', 'Ú', 'U', 'U', "`"), $nota_o
 );
 
-$sql = "UPDATE Orden_Venta SET id_orden_venta='$id_orden_venta', fecha_o='$fecha_o',`fecha_eo`='$fecha_eo', `pedido_cliente`='$pedido_cliente',`lugar_entrega`='$lugar_entrega',`importe_letra`='$importe_letra',`id_gventas`='$id_gventas',`id_goperativa`='$id_goperativa',`id_aventas`='$id_aventas', id_cred_y_cobr='$id_cred_y_cobr', nota_o='$nota_o' WHERE `id_orden_venta`='$id_orden_venta'";
-$resultado = query($sql, $conexion);
+
+$sqla = "UPDATE Orden_Venta SET id_orden_venta='$id_orden_venta', fecha_o='$fecha_o',`fecha_eo`='$fecha_eo', `pedido_cliente`='$pedido_cliente', `lugar_entrega`='$lugar_entrega', `importe_letra`='$importe_letra',`id_gventas`='$id_gventas', `id_goperativa`='$id_goperativa', `id_aventas`='$id_aventas', id_cred_y_cobr='$id_cred_y_cobr', nota_o='$nota_o' WHERE `id_orden_venta`='$id_orden_venta'";
+$resultado = query($sqla, $conexion);
 }
 
 else{
@@ -95,7 +98,7 @@ if($editar=='si'){
 	<script type="text/javascript">
 	
         function regresar() {
-            alert("La orden de venta ha se ha guardado");
+            alert("La orden de venta ha se ha creado");
             document.location.href = 'log_in.php';
         }
         regresar()
