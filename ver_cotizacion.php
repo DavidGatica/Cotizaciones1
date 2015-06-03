@@ -139,12 +139,12 @@ $cp = $campo['cp'];
 
 
 
-                                <td height="33.3%" width="33.3%" id="bordet">
+                                <td height="33.3%" width="14%" id="bordet">
                                     <div align="center">
                                         <table>
 
-                                            <tr><td width="50%" align=right class="h7">
-                                                    No. de Cotizaci&oacute;n:</td><td align=center width="50px" class="h7"><?php echo $id_cotizacion; ?></td></tr>
+                                            <tr> <td width="50%" align=right>
+                                                    No. de Cotizaci&oacute;n:</td><td align=center width="50px"><?php echo $id_cotizacion; ?></td></tr>
 
                                             <tr><td width="50%" align=right class="h7">	      
                                                     Fecha: </td><td align=center width="50px" class="h7"><?php echo $fecha; ?> </td></tr>
@@ -343,7 +343,7 @@ while ($campo = mysql_fetch_array($resultado)) {
 									
                                     <table class="botmargin tablaco" border=1 cellspacing="2px">
                                         <tr>
-                                            <td><h5 class="h7">
+                                            <td><h5 class="h7 f_veige padding">
                                                     Condiciones de entrega<br>
                                                     *El tiempo de entrega corre a partir de recibir su pedido original firmado<br> haciendo referencia a este número de cotización y de confirmar el 			anticipó<br> correspondiente en nuestra cuenta.<br>
                                                     *Para embalajes especiales considerar cargos extras.<br>
@@ -352,12 +352,12 @@ while ($campo = mysql_fetch_array($resultado)) {
                                                     *No se liberan materiales sin el pago total de la mercancia.
                                                 </h5></td>
 
-                                            <td width="210px" class="h7">
+                                            <td width="210px" class="h7 f_veige">
                                                 <h3 align="center">Tiempo de entrega</h3><br><br>
                                                 <div align="center" valign="top"> <?php echo $t_entrega; ?></div>
                                             </td>
 
-                                            <td width="210px" class="h7">
+                                            <td width="210px" class="h7 f_veige">
                                                 <h3 align="center">Condiciones de pago</h3><br><br>
                                                 <div align="center" valign="top">
 <?php echo $c_pago; ?>
@@ -379,7 +379,7 @@ while ($campo = mysql_fetch_array($resultado)) {
                                     </body>
 
                                     
-									
+									<br>
 									<div class="center">
 									<?php
 									echo "<a href='orden_venta.php?id_cotizacion=".$id_cotizacion."' class='botoncirri'>Generar orden de venta</a>";

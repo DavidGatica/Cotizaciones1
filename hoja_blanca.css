@@ -2,10 +2,8 @@
 
     height: auto;
     width: 1070px;
-
     background: #FFFFFF;
-	
-
+	border: 1px solid #E9E9E9;
 }
 
 
@@ -13,17 +11,31 @@
 .h7{
     color:black;  
 	border-radius:10px;
+}
+
+.f_veige
+{
 	background: #F4F2F3;
+	border-radius:10px;
+}
+
+.redondeo
+{
+	border-radius:10px;
+}
+
+.padding
+{
+	padding: 0.5em;
 }
 
 
 
 .tablaco{
-color:black;  
+	padding: 0.1em;
+    color:black;  
 	border-radius:10px;
-	background: #F4F2F3;
-
-
+	background: black;
 }
 
 }
@@ -50,6 +62,12 @@ color:black;
 .tablota{
 border-radius:10px;
 background-color: black;
+}
+
+.center
+{
+	margin: 0 auto;
+	text-align: center;
 }
 
 .thead
