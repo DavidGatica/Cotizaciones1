@@ -4,17 +4,37 @@
     width: 1070px;
 
     background: #FFFFFF;
+	
 
 }
+
+
 
 .h7{
     color:black;  
+	border-radius:10px;
+	background: #F4F2F3;
 }
+
+
+
+.tablaco{
+color:black;  
+	border-radius:10px;
+	background: #F4F2F3;
+
+
+}
+
+}
+
+
 
 #tablilla
 {
 	width: 55em;
 	border-radius:10px;
+	background-color: black;
 	
 }
 
@@ -26,8 +46,10 @@
 
 
 
+
 .tablota{
 border-radius:10px;
+background-color: black;
 }
 
 .thead
@@ -39,6 +61,8 @@ border-radius:10px;
 .botmargin
 {
 	margin: 1em;
+	background-color:black;
+	border-radius: 10px;
 }
 
 .precios

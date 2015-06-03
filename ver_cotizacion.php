@@ -128,6 +128,7 @@ $cp = $campo['cp'];
             <body id="bodier" class="h7" style="color:black;"> <br><br><br>			
                 <div id="page">
                     <div align="center">
+					
                         <table border=0 cellspacing="2px" width="90%">
                             <tr >
 
@@ -168,7 +169,7 @@ $cp = $campo['cp'];
                                             <br>Cuautitlán Izcalli, Estado de México, C.P. 54713
                                             <br>ventas@artefactosluminicos.com.mx
                                             <br>www.artefactosluminicos.com.mx </h5></div>
-                                </td>
+                                </td> 
                                 <td id="bordet"  align="left" class="h7"><br><h3><div class="h7">Condiciones de venta</div></h3><h5 class="h7">
                                         *Precios sujetos a cambio sin previo aviso.
                                         <br>*Cotizaciones confirmadas en dolares hacer pago en dolares a la cuenta 451244981 
@@ -202,7 +203,7 @@ $cp = $campo['cp'];
 
                             </tr>
 
-                        </table>
+                        </table> 
 
                     </div>
 
@@ -339,7 +340,8 @@ while ($campo = mysql_fetch_array($resultado)) {
 
 
                                     <br><br><br>
-                                    <table class="botmargin" border=1 cellspacing="2px">
+									
+                                    <table class="botmargin tablaco" border=1 cellspacing="2px">
                                         <tr>
                                             <td><h5 class="h7">
                                                     Condiciones de entrega<br>
